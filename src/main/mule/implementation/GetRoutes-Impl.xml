@@ -56,11 +56,13 @@ payload map (value, index)->{
     "companyCode": vars.transportCompany,
     "originLocation": {
       "locationCode": value.departureLocationCode,
-      "locationDesc": (LocationMapping filter($.locationCode == value.departureLocationCode.locationCode))[0].locationDesc
+      "locationDesc": (LocationMapping filter($.locationCode == value.departureLocationCode))[0].locationDesc
+      
     },
     "destinationLocation": {
       "locationCode": value.arrivalLocationCode,
-      "locationDesc": (LocationMapping filter($.locationCode == value.arrivalLocationCode.locationCode))[0].locationDesc
+      "locationDesc": (LocationMapping filter($.locationCode == value.arrivalLocationCode))[0].locationDesc
+      
     }
   }]]></ee:set-payload>
 					</ee:message>
