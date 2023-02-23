@@ -15,10 +15,10 @@ http://www.mulesoft.org/schema/mule/os http://www.mulesoft.org/schema/mule/os/cu
     </http:listener-config>
     <apikit:config name="retrieveroutesandschedulesapi-config" api="retrieveroutesandschedulesapi.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
 	<configuration-properties doc:name="Configuration properties" doc:id="0ce30482-b674-4595-a0b3-9620b851b769" file="config/${MULE_ENV}.yaml" />
-	<http:request-config name="HTTP_Request_configuration_for_TravelOnTip_SAPI" doc:name="HTTP Request configuration" doc:id="05be0a1f-be76-404e-a595-3e3ebf268c2a" >
+	<http:request-config name="HTTP_Request_configuration_for_TravelOnTip_SAPI" doc:name="HTTP Request configuration" doc:id="05be0a1f-be76-404e-a595-3e3ebf268c2a" responseTimeout="900000" >
 		<http:request-connection host="${http.requester.TravelOnTip.host}" port="${http.requester.TravelOnTip.port}" />
 	</http:request-config>
-	<http:request-config name="HTTP_Request_configuration_for_FastGo_SAPI" doc:name="HTTP Request configuration" doc:id="b1ffa75c-a245-4355-afa8-2b9ddb90d652" >
+	<http:request-config name="HTTP_Request_configuration_for_FastGo_SAPI" doc:name="HTTP Request configuration" doc:id="b1ffa75c-a245-4355-afa8-2b9ddb90d652" responseTimeout="900000">
 		<http:request-connection host="${http.requester.FastGo.host}" port="${http.requester.FastGo.port}" />
 	</http:request-config>
 	<os:object-store name="Object_store" doc:name="Object store" doc:id="9e15c286-9e10-41d9-bfe7-1ff6e6f63596" maxEntries="1000" entryTtl="15" entryTtlUnit="MINUTES" expirationInterval="10" />

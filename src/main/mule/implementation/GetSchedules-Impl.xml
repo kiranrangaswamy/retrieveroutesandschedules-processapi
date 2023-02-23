@@ -22,7 +22,7 @@ output application/json
 var LocationMapping = (readUrl("classpath://json/LocationCodeMapping.json","application/json"))
 ---
 payload map (value, index)->{
-    "companyName": "TravelOnTip",
+    "companyName": "travel-on-tip",
     "availableSeats": value.availableSeats,
     "departureDateTime": value.departureDateTime,
     "travelRoute": {
@@ -57,7 +57,7 @@ output application/json
 var LocationMapping = (readUrl("classpath://json/LocationCodeMapping.json","application/json"))
 ---
 payload map (value, index)->{
-    "companyName": "FastGo",
+    "companyName": "fastGo",
     "availableSeats": value.availableSeats,
     "departureDateTime": value.departureDateTime,
     "travelRoute": {

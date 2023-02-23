@@ -44,6 +44,56 @@
 			<munit-tools:assert-equals doc:name="Assert equals" doc:id="7c855854-6e56-4017-8eff-7e8d926dae0e" actual="#[vars.httpStatus]" expected="404" />
 		</munit:validation>
 	</munit:test>
+	<munit:test name="retrieveroutesandschedulesapi-test-suiteTest-rotes-TOT" doc:id="38f6493f-f16e-4ef8-8ab9-d598d5fd2c6b" >
+		<munit:behavior >
+			<munit-tools:mock-when doc:name="Mock when" doc:id="bd859317-06f2-4c88-a945-f37c38ce5d44" processor="http:request">
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="Request" attributeName="doc:name" />
+					<munit-tools:with-attribute whereValue="860a0541-9328-4ef0-93d1-a61d6822bb6c" attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return >
+					<munit-tools:payload value='#[output application/java&#10;---&#10;[&#10;  {&#10;    "companyCode": "travel-on-tip",&#10;    "originLocation": {&#10;      "locationCode": "BEN-SG",&#10;      "locationDesc": "Beauna Vista Singapore"&#10;    },&#10;    "destinationLocation": {&#10;      "locationCode": "KLG-MY",&#10;      "locationDesc": "Klang Malaysia"&#10;    }&#10;  }&#10;]]' />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution >
+			<munit:set-event doc:name="Set Event" doc:id="ba39db59-8526-40fc-8dac-16318120cb31" >
+				<munit:attributes value='#[{&#10;	"headers":{"transactionId": "ldhic-oiwjdd-lsl"},&#10;	"uriParams":{"transportType": "bus",&#10;				"serviceType": "routes"},&#10;	"queryParams":{"companyName": "travel-on-tip"}&#10;}]' />
+				<munit:variables >
+					<munit:variable key="resource" value="routes" />
+				</munit:variables>
+			</munit:set-event>
+			<flow-ref doc:name="Flow Reference for routes:retrieveroutesandschedulesapi" doc:id="98a7946b-eb2c-4f9b-b939-ceab56b3b749" name="get:\booking\(transportType)\routes:retrieveroutesandschedulesapi-config"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert expression" doc:id="6bd83442-510f-46a9-b86b-2a2fb89d908f" />
+		</munit:validation>
+	</munit:test>
+	<munit:test name="retrieveroutesandschedulesapi-test-suiteTest1-routes-FG" doc:id="5d67e576-01b6-4db9-a801-11f672124458" >
+		<munit:behavior >
+			<munit-tools:mock-when doc:name="Mock when" doc:id="a2c23171-15b3-4889-8d27-5c2424a39b43" processor="http:request" >
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="Request" attributeName="doc:name" />
+					<munit-tools:with-attribute whereValue="0d24a63e-89ee-4f07-b07a-5c4ab1d3b441" attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return >
+					<munit-tools:payload value='#[output application/java&#10;---&#10;[&#10;  {&#10;    "companyCode": "fastGo",&#10;    "originLocation": {&#10;      "locationCode": "KLG-MY",&#10;      "locationDesc": "Klang Malaysia"&#10;    },&#10;    "destinationLocation": {&#10;      "locationCode": "BEN-SG",&#10;      "locationDesc": "Beauna Vista Singapore"&#10;    }&#10;  }&#10;]]' />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution >
+			<munit:set-event doc:name="Set Event" doc:id="bb50dd5a-7b9a-4c88-b56e-c86e1960bdb8" >
+				<munit:attributes value='#[{&#10;	"headers":{"transactionId": "ldhic-oiwjdd-lsl"},&#10;	"uriParams":{"transportType": "bus",&#10;				"serviceType": "routes"},&#10;	"queryParams":{"companyName": "fastGo"}&#10;}]' />
+				<munit:variables >
+					<munit:variable key="resource" value="routes" />
+				</munit:variables>
+			</munit:set-event>
+			<flow-ref doc:name="Flow Reference for routes:retrieveroutesandschedulesapi" doc:id="0096ec84-a754-4b06-a42f-88ab72c4435d" name="get:\booking\(transportType)\routes:retrieveroutesandschedulesapi-config" />
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert expression" doc:id="0eb874c4-00e5-495b-af7b-b882f8565d3d" />
+		</munit:validation>
+	</munit:test>
 
 
 </mule>
